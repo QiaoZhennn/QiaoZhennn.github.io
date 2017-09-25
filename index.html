@@ -1,0 +1,368 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Resume</title>
+    <link rel="stylesheet" href="bootstrap-3.3.7-dist/css/bootstrap.min.css">
+    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
+    <script src="https://cdn.bootcss.com/jquery/1.12.4/jquery.min.js"></script>
+    <!--Include all compiled plugins (below), or include individual files as needed -->
+    <script src="bootstrap-3.3.7-dist/js/bootstrap.min.js"></script>
+    <style>
+        body {
+            padding-top: 70px;
+        }
+    </style>
+</head>
+<body class="container-fluid">
+<header>
+    <nav class="navbar navbar-inverse navbar-fixed-top">
+        <div class="container">
+            <div class="navbar-header">
+                <div class="navbar-brand">Person Resume</div>
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#divNav">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+            </div>
+            <div id="divNav" class="collapse navbar-collapse">
+                <ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <button type="button" class="btn-success btn navbar-btn" data-toggle="modal"
+                                data-target="#divModal"
+                                title="Print">Print
+                        </button>
+                        <button type="button" class="btn btn-info navbar-btn" data-toggle="tooltip" data-delay="500"
+                                data-placement="bottom" title="Download">
+                            Download
+                        </button>
+                        <script>
+                            $(function () {
+                                $('[data-toggle="tooltip"]').tooltip();
+                            })
+                        </script>
+
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+</header>
+<div class="modal fade" data-backdrop="false" id="divModal">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal"><span>&times;</span></button>
+                <h4 class="modal-title">Print Resume</h4>
+            </div>
+            <div class="modal-body">
+                Print preview or Print Config.
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
+                <button type="button" class="btn btn-primary" data-dismiss="modal">Print</button>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="row">
+    <div class="col-md-3">
+        <div class="panel panel-default">
+            <div class="panel-heading">Personal Info</div>
+            <div class="panel-body">
+                <img src="images/me.jpg" class="img-responsive img-rounded img-thumbnail" alt="Me"/>
+            </div>
+            <p class="text-center"><b>Zhen Qiao</b></p>
+            <address class="container">
+                <strong>Harbin Institute of Technology</strong>
+                <br>
+                <span class="glyphicon glyphicon-home" title="Address"> <code>哈尔滨·西大直街·#92</code></span><br>
+                <span class="glyphicon glyphicon-file" title="Postcode"> <kbd>150001</kbd></span><br>
+                <span class="glyphicon glyphicon-phone" title="Phone"> 86-13100962286</span><br>
+                <span class="glyphicon glyphicon-envelope" title="Email"> qiaozhen9632@126.com</span><br>
+            </address>
+        </div>
+        <div class="panel panel-success">
+            <div class="panel-heading">Week Calendar <span class="glyphicon glyphicon-heart"></span></div>
+            <div class="panel-body">
+                    <table class="table table-bordered table-responsive table-condensed">
+                        <thead class="text-success">
+                        <th>SUN</th>
+                        <th>MON</th>
+                        <th>TUE</th>
+                        <th>WED</th>
+                        <th>THU</th>
+                        <th>FRI</th>
+                        <th>SAT</th>
+                        </thead>
+                        <tbody>
+                        <td class="text-center"><span style="color:rgb(204,255,70);">😉</span></td>
+                        <td class="text-center"><span style="color:rgb(204,255,70);">😲</span></td>
+                        <td class="text-center"><span style="color:rgb(204,255,70);">😠</span></td>
+                        <td class="text-center"><span style="color:rgb(204,255,70);">😭</span></td>
+                        <td class="text-center"><span style="color:rgb(204,255,70);">😵</span></td>
+                        <td class="text-center"><span style="color:rgb(204,255,70);">😍</span></td>
+                        <td class="text-center"><span style="color:rgb(204,255,70);">😎</span></td>
+                        </tbody>
+                    </table>
+            </div>
+        </div>
+        <div class="panel panel-info">
+            <div class="panel-heading">Personal Skills</div>
+            <div class="panel-body">
+                <div class="row">
+                    <div class="col-md-3">
+                        <span class="text-success">Java</span>
+                    </div>
+                    <div class="col-md-9">
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-striped progress-bar-success active"
+                                 style="width: 50%">50%
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <span class="text-info">C</span>
+                    </div>
+                    <div class="col-md-9">
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-striped progress-bar-info active"
+                                 style="width: 40%">40%
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <span class="text-warning">R</span>
+                    </div>
+                    <div class="col-md-9">
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-striped progress-bar-warning active"
+                                 style="width: 20%">20%
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <span class="text-danger">Python</span>
+                    </div>
+                    <div class="col-md-9">
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-striped progress-bar-danger active"
+                                 style="width: 20%">20%
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <span class="text-info">HTML5</span>
+                    </div>
+                    <div class="col-md-9">
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-striped active" style="width: 20%">20%</div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <span class="text-success">JavaScript</span>
+                    </div>
+                    <div class="col-md-9">
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-striped progress-bar-success active"
+                                 style="width: 10%">10%
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <span class="text-info">MySQL</span>
+                    </div>
+                    <div class="col-md-9">
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-striped progress-bar-info active"
+                                 style="width: 60%">60%
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <span class="text-warning">MATLAB</span>
+                    </div>
+                    <div class="col-md-9">
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-striped progress-bar-warning active"
+                                 style="width: 70%">70%
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="row">
+                    <div class="col-md-3">
+                        <span class="text-danger">SolidWorks</span>
+                    </div>
+                    <div class="col-md-9">
+                        <div class="progress">
+                            <div class="progress-bar progress-bar-striped progress-bar-danger active"
+                                 style="width: 80%">80%
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-primary">
+            <div class="panel-heading">Contact me</div>
+            <div class="panel-body">
+                <form class="form-horizontal">
+                    <div class="form-group">
+                        <label for="email" class="col-md-2 control-label">Email</label>
+                        <div class="col-md-10">
+                            <input type="email" id="email" class="form-control" placeholder="Email">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <label for="name" class="col-md-2 control-label">Name</label>
+                        <div class="col-md-10">
+                            <input type="text" id="name" class="form-control" placeholder="Name">
+                        </div>
+                    </div>
+                    <div class="form-group">
+                        <div class="col-md-4 col-md-offset-8">
+                            <button type="submit" class="form-control btn btn-primary pull-right" placeholder="Send">
+                                Send
+                            </button>
+                            <div class="clearfix"></div>
+                        </div>
+                    </div>
+                </form>
+
+            </div>
+        </div>
+    </div>
+    <div class="col-md-9">
+        <div class="jumbotron">
+            <p class="text-right small">Still learning how to develop websites in Beijing...<br>
+                Still learning how to develop websites in Beijing...<br>
+                Still learning how to develop websites in Beijing...<br>
+                Still learning how to develop websites in Beijing...</p>
+        </div>
+        <div class="panel-group" id="accordion">
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <div class="panel-title">
+                        <a href="#collapseOne" data-toggle="collapse" data-parent="#accordion">Work Experience</a>
+                    </div>
+                </div>
+                <div id="collapseOne" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        <ul class="list-group">
+                            <li class="list-group-item list-group-item-info">
+                                <div class="row">
+                                    <div class="col-md-2">2016/12 - 2017/5</div>
+                                    <div class="col-md-4">Hangzhou AIMS.Co.Ltd,.</div>
+                                    <div class="col-md-3">R & D</div>
+                                    <div class="col-md-3">Internship</div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <div class="panel-title">
+                        <a href="#collapseTwo" data-toggle="collapse" data-parent="#accordion">Education</a>
+                    </div>
+                </div>
+                <div id="collapseTwo" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        <ul class="list-group">
+                            <li class="list-group-item list-group-item-info">
+                                <div class="row">
+                                    <div class="col-md-2">2013/8 - 2017/7</div>
+                                    <div class="col-md-4">Harbin Institute of Technology, China</div>
+                                    <div class="col-md-3">Bachelor of Science</div>
+                                    <div class="col-md-3">Mechanical Engineering</div>
+                                </div>
+                            </li>
+                            <li class="list-group-item list-group-item-success">
+                                <div class="row">
+                                    <div class="col-md-2">2016/2 - 2016/6</div>
+                                    <div class="col-md-4">Hanyang University,South Korea</div>
+                                    <div class="col-md-3">Exchange Study</div>
+                                    <div class="col-md-3">Mechanical Engineering</div>
+                                </div>
+                            </li>
+                            <li class="list-group-item list-group-item-warning">
+                                <div class="row">
+                                    <div class="col-md-2">2017/5 - 2017/9</div>
+                                    <div class="col-md-4">Beijing Atguigu School</div>
+                                    <div class="col-md-3">Professional Training</div>
+                                    <div class="col-md-3">Computer Science</div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+
+            <div class="panel panel-default">
+                <div class="panel-heading">
+                    <div class="panel-title">
+                        <a href="#collapseThree" data-toggle="collapse" data-parent="#accordion">Project</a>
+                    </div>
+                </div>
+                <div id="collapseThree" class="panel-collapse collapse">
+                    <div class="panel-body">
+                        <div id="divCarousel" class="carousel slide" data-ride="carousel">
+                            <ol class="carousel-indicators">
+                                <li class="active" data-target="#divCarousel" data-slide-to="0"></li>
+                                <li data-target="#divCarousel" data-slide-to="1"></li>
+                                <li data-target="#divCarousel" data-slide-to="2"></li>
+                            </ol>
+                            <div class="carousel-inner">
+                                <div class="item active">
+                                    <!--<img src="images/project1.jpg" height="693" width="1089"/>-->
+                                    <img src="images/a.jpg" class="img-responsive img-rounded" art="..."/>
+                                    <div class="carousel-caption">project1</div>
+                                </div>
+                                <div class="item">
+                                    <img src="images/b.jpg" class="img-responsive img-rounded" art="..."/>
+                                    <div class="carousel-caption">project2</div>
+                                </div>
+                                <div class="item">
+                                    <img src="images/c.jpg" class="img-responsive img-rounded" art="..."/>
+                                    <div class="carousel-caption">project3</div>
+                                </div>
+                            </div>
+                            <a href="#divCarousel" class="left carousel-control" data-slide="prev">
+                                <span class="glyphicon glyphicon-chevron-left"></span>
+                            </a>
+                            <a href="#divCarousel" class="right carousel-control" data-slide="next">
+                                <span class="glyphicon glyphicon-chevron-right"></span>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<footer>
+    <nav class="navbar-default navbar-fixed-bottom text-center">
+        All images and contents &copy; by Zhen Qiao
+    </nav>
+</footer>
+</body>
+</html>
