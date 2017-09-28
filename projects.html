@@ -18,18 +18,35 @@
 </head>
 <body class="container-fluid">
 <header>
-    <nav class="navbar navbar-fixed-top navbar-inverse">
+    <nav class="navbar navbar-inverse navbar-fixed-top">
         <div class="container">
             <div class="navbar-header">
                 <div class="navbar-brand">Demonstration of my projects</div>
+                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#divNav">
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
             </div>
-            <ul class="nav navbar-nav navbar-right">
-                <li class="active"><a href="#PHM" data-toggle="tab">PHM Toolbox</a></li>
-                <li><a href="#Shopping" data-toggle="tab">Online Shopping</a></li>
-                <li><a href="#CrowdFunding" data-toggle="tab">Crowd Funding</a></li>
-                <li><a href="#Survey" data-toggle="tab">Online Survey</a></li>
-                <li><a href="#Bookstore" data-toggle="tab">Bookstore</a></li>
-            </ul>
+            <div id="divNav" class="collapse navbar-collapse">
+                <!--<ul class="nav navbar-nav navbar-right">
+                    <li>
+                        <button type="button" class="btn-success btn navbar-btn" data-toggle="modal"
+                                data-target="#divModal"
+                                title="view pdf resume">Show Resume
+                        </button>
+                    </li>
+                </ul>-->
+
+                <ul class="nav navbar-nav navbar-right">
+                    <li class="active"><a href="#PHM" data-toggle="tab">PHM Toolbox</a></li>
+                    <li><a href="#Shopping" data-toggle="tab">Online Shopping</a></li>
+                    <li><a href="#CrowdFunding" data-toggle="tab">Crowd Funding</a></li>
+                    <li><a href="#Survey" data-toggle="tab">Online Survey</a></li>
+                    <li><a href="#Bookstore" data-toggle="tab">Bookstore</a></li>
+                </ul>
+            </div>
+
         </div>
     </nav>
 </header>
