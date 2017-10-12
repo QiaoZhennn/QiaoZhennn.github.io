@@ -82,9 +82,13 @@
                 <div class="panel-heading"><h3>Introduction to the PHM Toolbox</h3></div>
                 <div class="panel-body">
                     <p>
-                        Prognostics and Health Management (PHM) is a technology helping engineers manage devices.
-                        With PHM, They can predict when the device will fail based on the industrial big data gathered by sensors.
-                        PHM Toolbox is my graduation project. It was developed with Matlab when I did my internship in Hangzhou AIMS company.
+                        I finished my college graduation project here, which name is PHM (Prognostics and Health Management) Toolbox,
+                        aiming to judge whether a bearing runs in a health condition by analyzing industrial big data.
+                        1. Designed user interface with MATLAB GUI
+                        2. Implemented feature selection from multiple time domain features using Principal Component Analysis (PCA)
+                        with MATLAB. And I implemented the classification between health condition and unhealthy condition using Support Vector Machine (SVM),
+                        Self-organizing Map (SOM) and Gaussian Mixture Model (GMM) with MATLAB.
+                        3. Drew a bearing’s health degree curve using Logistic Regression (LR) with MATLAB.
                     </p>
                 </div>
 
@@ -119,17 +123,25 @@
                         This a small online shopping website but with nearly whole basic function compared with common online shopping website.
                     </p>
                     <p>
-                        First part is the background management system. The administrator is able to add or drop merchandises. Besides, they can add or drop
-                        the attributes of a merchandise. And, they can manually copy data from database to the Redis cache, so that customers can look through
-                        merchandises more efficiently.
-                    </p>
-                    <p>
                         Second part is the customer trading system. A customer can look through all the merchandises, or with
                         some filters, or rank them by some order. In addition, They are able to search the database or cache with some keywords,
                         Apache Solr is used to implement this function.
                         First, they need to add merchandise to the shopping cart. Second,
                         they go to the shopping cart and make sure what they want to buy and where they want to deliver, forming an order.
                         Third, pay the bill. This website can further use a public online finance interface to accomplish the payment process.
+                    </p>
+                    <p>
+                        Main techniques:
+                        1. Built the background seller management system and foreground customer trading system using Spring + SpringMVC + Mybatis (SSM) framework with Java .
+                        2. Implemented a web service for user authentication using Apache CXF + Spring framework with Java.
+                        3. Designed background seller management user interface using EasyUI with JavaScript and CSS.
+                        4. Used Redis as cache to improve efficiency.
+                        5. Implemented keyword search function using Apache Solr with Java.
+                    </p>
+                    <p>
+                        First part is the background management system. The administrator is able to add or drop merchandises. Besides, they can add or drop
+                        the attributes of a merchandise. And, they can manually copy data from database to the Redis cache, so that customers can look through
+                        merchandises more efficiently.
                     </p>
                 </div>
             </div>
@@ -146,6 +158,19 @@
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading"><h3>Introduction to the online shopping website</h3></div>
+                <div class="panel-body">
+                    <p>
+                        Second part is the customer trading system. A customer can look through all the merchandises, or with
+                        some filters, or rank them by some order. In addition, They are able to search the database or cache with some keywords,
+                        Apache Solr is used to implement this function.
+                        First, they need to add merchandise to the shopping cart. Second,
+                        they go to the shopping cart and make sure what they want to buy and where they want to deliver, forming an order.
+                        Third, pay the bill. This website can further use a public online finance interface to accomplish the payment process.
+                    </p>
                 </div>
             </div>
             <div class="panel panel-primary">
@@ -174,20 +199,17 @@
                 <div class="panel-heading"><h3>Introduction to the crowd funding website</h3></div>
                 <div class="panel-body">
                     <p>
-                        This is a online crowd funding website. People can publish ideas and collect money on this website.
+                        This is a online crowd funding website. User can publish ideas and collect money to start their ideas through this website.
+                    </p>
+                    <p>
+                        Main techniques:
+                        1. Built background management system including user register system, role-based access control (RBAC) and user real name authentication using SSM framework with Java.
+                        2. Implemented user authentication workflow function using Activiti5 with Java.
+                        3. Designed user interface using Bootstrap3.
                     </p>
                     <p>
                         First part is the background management system. Web administrator is able to control permissions
                         of different types of user.
-                    </p>
-                    <p>
-                        Second part is the user authentication workflow. Activiti5 is used to design and control the workflow.
-                        A user need to choose its user type firstly. And then, start the procedure of authentication.
-                        There are 4 main steps of user authentication. First, basic information of user. Second, upload certification
-                        files, which are defined by the background management system. Third, email confirmation. Fourth, user will
-                        receive an email. Filling the verification code to confirm this user authentication application.
-                        After finishing all these steps, an web administrator can check all the information provided by
-                        this user and decide whether pass this application or not.
                     </p>
                 </div>
             </div>
@@ -204,6 +226,22 @@
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading"><h3>Introduction to the crowd funding website</h3></div>
+                <div class="panel-body">
+                    <p>
+                        Second part is the user authentication workflow. Activiti5 is used to design and control the workflow.
+                        A user needs to choose its user type firstly. And then, start the procedure of authentication.
+                        There are 4 main steps for user authentication.
+                        First, fill user basic information form.
+                        Second, upload certification files, which are defined by the background management system.
+                        Third, confirm email address.
+                        Fourth, user will receive an email. Filling the verification code to confirm this user authentication application.
+                        After finishing all these steps, an web administrator can check all the information provided by
+                        this user and decide whether pass this application or not.
+                    </p>
                 </div>
             </div>
             <div class="panel panel-primary">
@@ -232,17 +270,18 @@
                 <div class="panel-heading"><h3>Introduction to the online survey website</h3></div>
                 <div class="panel-body">
                     <p>
-                        This is an full function online survey website but without a colorful portal.
-                        I was Mainly focus on backend development.
+                        This is an full function online survey website. Mainly focuses on backend functions.
+                        This website aims to help college students publish survey online so that they can receive more response and analyze the result more efficiently.
+                    </p>
+                    <p>
+                        Main techniques:
+                        1. Built survey publishing system and user authority control system using SSM framework.
+                        2. Implemented questionnaire statistic and data visualization using ECharts3, a JavaScript/CSS
                     </p>
                     <p>
                         First part is background management system. Web administrators have various permissions. They can
                         view the result of each survey, manage access permission of different user roles, view logs of the
                         website.
-                    </p>
-                    <p>
-                        There are two types of user: enterprise user and individual user. Enterprise users can design
-                        surveys and participate in surveys, while individual users can only participate in surveys.
                     </p>
                 </div>
             </div>
@@ -259,6 +298,15 @@
                             </div>
                         </div>
                     </div>
+                </div>
+            </div>
+            <div class="panel panel-default">
+                <div class="panel-heading"><h3>Introduction to the online survey website</h3></div>
+                <div class="panel-body">
+                    <p>
+                        Second part. There are two types of user: enterprise user and individual user. Enterprise users can design
+                        surveys and participate in surveys, while individual users can only participate in surveys.
+                    </p>
                 </div>
             </div>
             <div class="panel panel-primary">
@@ -287,9 +335,13 @@
                 <div class="panel-heading"><h3>Introduction to the online bookstore</h3></div>
                 <div class="panel-body">
                     <p>
-                        This online bookstore was developed without using any Jave EE frameworks. User can select books,
-                        add them to shopping cart, submit the order. And a web administrator can add, drop or change books,
-                        view and change order status.
+                        This online bookstore aimed to help college students to sell used books online. User can select books,
+                        add them to shopping cart, submit the order. A web administrator can add, drop or change books, view and change order status.
+                    </p>
+                    <p>
+                        Main techniques:
+                        1. Designed user interface using JavaScript, CSS and HTML.
+                        2. Implemented user register function, inventory management and trading system using java servlet and MySQL.
                     </p>
                 </div>
             </div>
