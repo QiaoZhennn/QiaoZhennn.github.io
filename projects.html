@@ -43,7 +43,8 @@
                 </ul>-->
 
                 <ul class="nav navbar-nav navbar-right">
-                    <li class="active"><a href="#PHM" data-toggle="tab">PHM Toolbox</a></li>
+                    <li class="active"><a href="#RecruitmentAPP" data-toggle="tab">Recruitment APP</a></li>
+                    <li><a href="#PHM" data-toggle="tab">PHM Toolbox</a></li>
                     <li><a href="#Shopping" data-toggle="tab">Online Shopping</a></li>
                     <li><a href="#CrowdFunding" data-toggle="tab">Crowd Funding</a></li>
                     <li><a href="#Survey" data-toggle="tab">Online Survey</a></li>
@@ -76,6 +77,38 @@
 </div>
 
 <div class="tab-content">
+    <div class="tab-pane fade in active" id="RecruitmentAPP">
+        <div class="jumbotron">
+            <div class="panel panel-default">
+                <div class="panel-heading"><h3>Introduction to my Recruitment APP</h3></div>
+                <div class="panel-body">
+                    <p>
+                        This is a full-stack app developed while I am working at Ardent Academy, Irvine.
+                        Constructed a modern full-stack architecture based on React, Node.js and npm
+                    </p>
+                    <p>
+                        Main techniques:
+                        <br>1. Implemented user register and login using Google OAuth API
+                        <br>2. Developed user profile, using React-Router to handle page jumps and using Redux to manage states of components
+                        <br>3. Implemented instant messaging system using Socket.io and Axios
+                        <br>4. Tested performances of all requests by Chrome DevTools, analyzed and optimized code, deployed on AWS EC2
+                    </p>
+                    <p>
+                        <a href="http://13.56.67.69:9093/login" target="_blank">Try this app!</a>
+                        <br>Two employer roles:
+                        <br>&nbsp;&nbsp;Username: Karl, Password: 123
+                        <br>&nbsp;&nbsp;Username: Jen, Password: 123
+                        <br>Two employee roles:
+                        <br>&nbsp;&nbsp;Username: Lina, Password: 123
+                        <br>&nbsp;&nbsp;Username: Snipper, Password: 123
+                    </p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+
     <div class="tab-pane fade in active" id="PHM">
         <div class="jumbotron">
             <div class="panel panel-default">
@@ -87,11 +120,10 @@
                     </p>
                     <p>
                         Main techniques:
-                        <br>1. Designed user interface with MATLAB GUI
-                        <br>2. Implemented feature selection from multiple time domain features using Principal Component Analysis (PCA)
-                        with MATLAB. And I implemented the classification between health condition and unhealthy condition using Support Vector Machine (SVM),
-                        Self-organizing Map (SOM) and Gaussian Mixture Model (GMM) with MATLAB.
-                        <br>3. Drew a bearing’s health degree curve using Logistic Regression (LR) with MATLAB.
+                        <br>1. Developed algorithms for engineers to predict bearing’s failure time based on labeled data via MATLAB
+                        <br>2. Preprocessed data set by data cleaning, categorical feature transformation, standardization and PCA
+                        <br>3. Trained supervised machine learning models include Support Vector Machine, Logistic Regression, kNN and applied regularization with optimal parameters to overcome overfitting
+                        <br>4. Evaluated model performance of classification via k-fold cross-validation and confusion matrix
                     </p>
                 </div>
 
@@ -123,7 +155,7 @@
                 <div class="panel-heading"><h3>Introduction to the online shopping website</h3></div>
                 <div class="panel-body">
                     <p>
-                        This a small online shopping website but with nearly whole basic function compared with common online shopping website.
+                        This is a online shopping website implementing principal functions compared with those giant online shopping website.
                     </p>
                     <p>
                         Second part is the customer trading system. A customer can look through all the merchandises, or with
@@ -135,11 +167,12 @@
                     </p>
                     <p>
                         Main techniques:
-                        <br>1. Built the background seller management system and foreground customer trading system using Spring + SpringMVC + Mybatis (SSM) framework with Java .
-                        <br>2. Implemented a web service for user authentication using Apache CXF + Spring framework with Java.
-                        <br>3. Designed background seller management user interface using EasyUI with JavaScript and CSS.
-                        <br>4. Used Redis as cache to improve efficiency.
-                        <br>5. Implemented keyword search function using Apache Solr with Java.
+                        <br>1. Designed an interactive web page utilizing AJAX technology and BootStrap3 CSS framework
+                        <br>2. Created robust Java servlets based on SSM framework with RESTful APIs to handle HTTP requests and responses
+                        <br>3. Designed MySQL data models, used Redis to handle high concurrency and improve data extraction performance
+                        <br>4. Design algorithms for multi data source switch, products classification and order, inventory update etc
+                        <br>5. Implemented products search function using Solr enable customers search product at the searching box
+                        <br>6. Deployed server side to Amazon EC2 which can handle 150 queries per second tested by Apache JMeter
                     </p>
                     <p>
                         First part is the background management system. The administrator is able to add or drop merchandises. Besides, they can add or drop
