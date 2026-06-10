@@ -1,0 +1,80 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900" role="img" aria-labelledby="title desc">
+  <title id="title">VLM annotation data funnel</title>
+  <desc id="desc">An inverted-trapezoid data funnel for a VLM annotation pipeline: first-party and third-party raw media at full width, narrowing through visual quality filtering, privacy mitigation, NER, classification and object detection, and re-captioning, then narrowing again at CLIP similarity, down to evaluation and ablation.</desc>
+  <defs>
+    <style>
+      .bg{fill:#f5efe3}
+      .grid{stroke:#d8ccbb;stroke-width:1;opacity:.55}
+      .funnel{stroke:#171512;stroke-width:3;stroke-linejoin:round}
+      .band-a{fill:#fffaf1}
+      .band-b{fill:#eadcc8}
+      .band-c{fill:#e7d3bd}
+      .band-d{fill:#d7c6ad}
+      .band-e{fill:#c66c45}
+      .band-f{fill:#5f6b54}
+      .serif{font-family:Georgia,Times,serif;font-size:66px;font-weight:500;fill:#171512}
+      .small{font-family:Arial,Helvetica,sans-serif;font-size:22px;fill:#625b50}
+      .stage{font-family:Arial,Helvetica,sans-serif;font-size:26px;font-weight:700;fill:#171512}
+      .detail{font-family:Arial,Helvetica,sans-serif;font-size:17px;fill:#625b50}
+      .tiny{font-family:Arial,Helvetica,sans-serif;font-size:15px;font-weight:700;fill:#8f4329;letter-spacing:.14em}
+      .stage-on{fill:#fffaf1}
+      .detail-on{fill:#f1e7d8}
+      .tiny-on{fill:#ffd9c5}
+      .loop{font-family:Arial,Helvetica,sans-serif;font-size:16px;font-weight:700;fill:#8f4329;letter-spacing:.04em}
+    </style>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse">
+      <path d="M0 0L10 5L0 10z" fill="#8f4329"/>
+    </marker>
+  </defs>
+
+  <rect class="bg" width="1200" height="900"/>
+  <path class="grid" d="M0 150h1200M0 300h1200M0 450h1200M0 600h1200M0 750h1200M150 0v900M300 0v900M450 0v900M600 0v900M750 0v900M900 0v900M1050 0v900"/>
+
+  <text x="72" y="104" class="serif">Data funnel</text>
+  <text x="76" y="148" class="small">VLM annotation pipeline for large-scale media curation</text>
+
+  <g aria-label="Funnel stages" text-anchor="middle">
+    <path class="funnel band-a" d="M100 190H1100L950 272H250Z"/>
+    <text x="600" y="216" class="tiny">STEP 01</text>
+    <text x="600" y="244" class="stage">1P + 3P raw media</text>
+    <text x="600" y="264" class="detail">unfiltered first-party and third-party image and video</text>
+
+    <path class="funnel band-b" d="M250 272H950V354H250Z"/>
+    <text x="600" y="298" class="tiny">STEP 02</text>
+    <text x="600" y="326" class="stage">Filter by visual quality</text>
+    <text x="600" y="346" class="detail">resolution, brightness, blurriness, temporal difference, aesthetics</text>
+
+    <path class="funnel band-c" d="M250 354H950V436H250Z"/>
+    <text x="600" y="380" class="tiny">STEP 03</text>
+    <text x="600" y="408" class="stage">Privacy mitigation</text>
+    <text x="600" y="428" class="detail">face blurring on selected media</text>
+
+    <path class="funnel band-a" d="M250 436H950V518H250Z"/>
+    <text x="600" y="462" class="tiny">STEP 04</text>
+    <text x="600" y="490" class="stage">NER on original caption</text>
+    <text x="600" y="510" class="detail">extract named entities before re-captioning</text>
+
+    <path class="funnel band-d" d="M250 518H950V600H250Z"/>
+    <text x="600" y="544" class="tiny">STEP 05</text>
+    <text x="600" y="572" class="stage">Classification &amp; object detection</text>
+    <text x="600" y="592" class="detail">run on original image frames and visual content</text>
+
+    <path class="funnel band-a" d="M250 600H950V682H250Z"/>
+    <text x="600" y="626" class="tiny">STEP 06</text>
+    <text x="600" y="654" class="stage">Re-caption image / video</text>
+    <text x="600" y="674" class="detail">generate clearer training captions after enrichment</text>
+
+    <path class="funnel band-e" d="M250 682H950L850 764H350Z"/>
+    <text x="600" y="708" class="tiny tiny-on">STEP 07</text>
+    <text x="600" y="736" class="stage stage-on">CLIP similarity</text>
+    <text x="600" y="756" class="detail detail-on">retain stronger image / video&#8211;text alignment</text>
+
+    <path class="funnel band-f" d="M350 764H850V846H350Z"/>
+    <text x="600" y="790" class="tiny tiny-on">STEP 08</text>
+    <text x="600" y="818" class="stage stage-on">Eval and ablation</text>
+    <text x="600" y="838" class="detail detail-on">measure quality, compare variants, tune thresholds</text>
+  </g>
+
+  <path d="M856 805C1010 772 1052 470 968 318" fill="none" stroke="#8f4329" stroke-width="2.5" stroke-linecap="round" stroke-dasharray="9 10" marker-end="url(#arrow)"/>
+  <text x="1086" y="560" class="loop" transform="rotate(90 1086 560)">ablation feedback loop</text>
+</svg>

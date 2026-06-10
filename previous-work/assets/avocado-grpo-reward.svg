@@ -1,0 +1,153 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="820" viewBox="0 0 1200 820" role="img" aria-labelledby="title desc">
+  <title id="title">GRPO reward design for dubbing post-training</title>
+  <desc id="desc">A diagram of group-relative policy optimization. A reward panel on the left lists the reward signals used to score a dubbing response: response format, input-output duration match, input-output transcription match, translation quality judged by MetricX, speaker similarity, accent or native-soundingness, and more. In the middle, for one prompt the policy samples a group of candidate responses. On the right, each response's rewards are aggregated into a scalar reward and normalized within the group into an advantage that updates the policy.</desc>
+  <defs>
+    <style>
+      .bg{fill:#f5efe3}
+      .panel{fill:#fffaf1;stroke:#171512;stroke-width:3}
+      .grid{stroke:#d8ccbb;stroke-width:1;opacity:.5}
+      .line{stroke:#171512;stroke-width:3;fill:none;stroke-linecap:round}
+      .thin{stroke:#171512;stroke-width:2;fill:none;stroke-linecap:round}
+      .clay{fill:#c66c45}.sage{fill:#707d65}.sand{fill:#eadcc8}.ink{fill:#171512}
+      .serif{font-family:Georgia,Times,serif;font-size:52px;font-weight:500;fill:#171512}
+      .sub{font-family:Arial,Helvetica,sans-serif;font-size:21px;fill:#625b50}
+      .label{font-family:Arial,Helvetica,sans-serif;font-size:22px;font-weight:700;fill:#171512}
+      .small{font-family:Arial,Helvetica,sans-serif;font-size:15px;fill:#625b50}
+      .tag{font-family:Arial,Helvetica,sans-serif;font-size:15px;font-weight:700;fill:#8f4329;letter-spacing:.06em}
+      .rname{font-family:Arial,Helvetica,sans-serif;font-size:16px;font-weight:700;fill:#171512}
+      .rdesc{font-family:Arial,Helvetica,sans-serif;font-size:12px;fill:#625b50}
+      .mono{font-family:'Courier New',monospace;font-size:16px;font-weight:700;fill:#171512}
+      .adv{font-family:Arial,Helvetica,sans-serif;font-size:15px;font-weight:700}
+    </style>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#171512"/></marker>
+    <marker id="arrowclay" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#8f4329"/></marker>
+  </defs>
+
+  <rect class="bg" width="1200" height="820"/>
+  <path class="grid" d="M0 160h1200M0 320h1200M0 480h1200M0 640h1200M300 0v820M600 0v820M900 0v820"/>
+
+  <text x="70" y="86" class="serif">GRPO reward design</text>
+  <text x="74" y="122" class="sub">Score each dubbing response on multiple rewards, optimize the group-relative advantage</text>
+
+  <!-- ======== LEFT PANEL: REWARD DIMENSIONS ======== -->
+  <text x="70" y="176" class="tag">REWARD SIGNALS</text>
+  <rect class="panel" x="70" y="190" width="356" height="490" rx="10"/>
+
+  <g>
+    <rect class="clay" x="92" y="212" width="13" height="56" rx="4"/>
+    <text x="118" y="234" class="rname">Format</text>
+    <text x="118" y="255" class="rdesc">valid schema: transcription / translation / vq</text>
+  </g>
+  <g>
+    <rect class="sage" x="92" y="284" width="13" height="56" rx="4"/>
+    <text x="118" y="306" class="rname">Duration match</text>
+    <text x="118" y="327" class="rdesc">output speech length &#8776; input speech length</text>
+  </g>
+  <g>
+    <rect class="sand" x="92" y="356" width="13" height="56" rx="4" stroke="#171512" stroke-width="2"/>
+    <text x="118" y="378" class="rname">Transcription match</text>
+    <text x="118" y="399" class="rdesc">output transcription &#8776; ASR of input audio</text>
+  </g>
+  <g>
+    <rect class="clay" x="92" y="428" width="13" height="56" rx="4"/>
+    <text x="118" y="450" class="rname">Translation quality</text>
+    <text x="118" y="471" class="rdesc">MetricX(source transcription, translation)</text>
+  </g>
+  <g>
+    <rect class="sage" x="92" y="500" width="13" height="56" rx="4"/>
+    <text x="118" y="522" class="rname">Speaker similarity</text>
+    <text x="118" y="543" class="rdesc">output voice &#8776; input speaker embedding</text>
+  </g>
+  <g>
+    <rect class="sand" x="92" y="572" width="13" height="56" rx="4" stroke="#171512" stroke-width="2"/>
+    <text x="118" y="594" class="rname">Accent / native</text>
+    <text x="118" y="615" class="rdesc">penalize foreign-accented target speech</text>
+  </g>
+  <text x="118" y="660" class="rdesc" font-style="italic">&#8230; and more task-specific rewards</text>
+
+  <!-- ======== MIDDLE: SAMPLE A GROUP ======== -->
+  <text x="470" y="176" class="tag">SAMPLE A GROUP</text>
+  <rect class="panel" x="470" y="190" width="250" height="72" rx="8"/>
+  <text x="595" y="220" class="label" text-anchor="middle">Prompt</text>
+  <text x="595" y="244" class="small" text-anchor="middle">speech + &#8220;translate to zh&#8221;</text>
+
+  <rect x="470" y="288" width="250" height="72" rx="8" fill="#707d65" stroke="#171512" stroke-width="3"/>
+  <text x="595" y="318" class="label" text-anchor="middle" fill="#fffaf1">Policy &#960;&#952;</text>
+  <text x="595" y="342" class="small" text-anchor="middle" fill="#f1e7d8">samples G candidates</text>
+  <path class="line" d="M595 262v22" marker-end="url(#arrow)"/>
+
+  <!-- group of candidate responses -->
+  <g>
+    <rect class="panel" x="478" y="420" width="234" height="40" rx="8"/>
+    <text x="496" y="446" class="mono">o&#8321;</text>
+    <text x="548" y="445" class="small" fill="#171512">&#26089;&#19978;&#22909;&#8230; (candidate 1)</text>
+  </g>
+  <g>
+    <rect class="panel" x="478" y="468" width="234" height="40" rx="8"/>
+    <text x="496" y="494" class="mono">o&#8322;</text>
+    <text x="548" y="493" class="small" fill="#171512">&#26089;&#23433;&#8230; (candidate 2)</text>
+  </g>
+  <g>
+    <rect class="panel" x="478" y="516" width="234" height="40" rx="8"/>
+    <text x="496" y="542" class="mono">o&#8323;</text>
+    <text x="548" y="541" class="small" fill="#171512">&#20320;&#22909;&#8230; (candidate 3)</text>
+  </g>
+  <g>
+    <rect class="panel" x="478" y="564" width="234" height="40" rx="8"/>
+    <text x="496" y="590" class="mono">o&#71;</text>
+    <text x="548" y="589" class="small" fill="#171512">&#26089;&#19978;&#22909;&#21568;&#8230; (candidate G)</text>
+  </g>
+  <path class="line" d="M595 360v52" marker-end="url(#arrow)"/>
+
+  <!-- rewards score the candidates: left panel feeds into the candidate group -->
+  <path class="thin" stroke="#8f4329" stroke-dasharray="7 7" d="M426 512 H470" marker-end="url(#arrowclay)"/>
+  <text x="448" y="500" class="tag" text-anchor="middle" font-size="13">score</text>
+
+  <!-- ======== RIGHT: AGGREGATE -> ADVANTAGE ======== -->
+  <text x="770" y="176" class="tag">AGGREGATE &#8594; ADVANTAGE</text>
+  <rect class="panel" x="770" y="190" width="360" height="414" rx="10"/>
+  <text x="950" y="226" class="label" text-anchor="middle">Reward column</text>
+  <text x="950" y="250" class="small" text-anchor="middle">aggregate each response&#8217;s rewards &#8594; r&#7522;</text>
+
+  <g class="mono" font-size="18">
+    <text x="828" y="296">r&#8321;</text>
+    <text x="1100" y="296" class="adv" text-anchor="end" fill="#707d65">A&#8321; &gt; 0</text>
+  </g>
+  <g class="mono" font-size="18">
+    <text x="828" y="334">r&#8322;</text>
+    <text x="1100" y="334" class="adv" text-anchor="end" fill="#8f4329">A&#8322; &lt; 0</text>
+  </g>
+  <g class="mono" font-size="18">
+    <text x="828" y="372">r&#8323;</text>
+    <text x="1100" y="372" class="adv" text-anchor="end" fill="#8f4329">A&#8323; &lt; 0</text>
+  </g>
+  <g class="mono" font-size="18">
+    <text x="828" y="410">r&#71;</text>
+    <text x="1100" y="410" class="adv" text-anchor="end" fill="#707d65">A&#71; &gt; 0</text>
+  </g>
+  <!-- reward bars to show relative magnitude -->
+  <g>
+    <rect class="sand" x="862" y="282" width="210" height="16" rx="8" stroke="#171512" stroke-width="1.5"/>
+    <rect class="sage" x="862" y="282" width="168" height="16" rx="8"/>
+    <rect class="sand" x="862" y="320" width="210" height="16" rx="8" stroke="#171512" stroke-width="1.5"/>
+    <rect class="clay" x="862" y="320" width="86" height="16" rx="8"/>
+    <rect class="sand" x="862" y="358" width="210" height="16" rx="8" stroke="#171512" stroke-width="1.5"/>
+    <rect class="clay" x="862" y="358" width="114" height="16" rx="8"/>
+    <rect class="sand" x="862" y="396" width="210" height="16" rx="8" stroke="#171512" stroke-width="1.5"/>
+    <rect class="sage" x="862" y="396" width="184" height="16" rx="8"/>
+  </g>
+
+  <line x1="800" y1="438" x2="1100" y2="438" class="thin"/>
+  <text x="950" y="482" class="mono" text-anchor="middle" font-size="21">A&#7522; = (r&#7522; &#8722; &#956;) / &#963;</text>
+  <text x="950" y="512" class="small" text-anchor="middle">advantage = reward minus group mean baseline</text>
+  <rect class="sand" x="836" y="540" width="228" height="40" rx="20" stroke="#171512" stroke-width="2"/>
+  <text x="950" y="566" class="rname" text-anchor="middle">&#956; = mean reward of the group</text>
+
+  <path class="line" d="M712 512h54" marker-end="url(#arrow)"/>
+
+  <!-- ======== policy update loop ======== -->
+  <path class="thin" stroke="#8f4329" stroke-dasharray="8 8" d="M950 604 C950 690 760 706 595 706 L595 612" marker-end="url(#arrowclay)"/>
+  <text x="470" y="744" class="tag">UPDATE POLICY &#8212; reinforce above-average responses, suppress below-average</text>
+
+  <text x="74" y="792" class="small">No critic network: the group mean acts as the baseline, so higher-than-average dubbing samples are reinforced and lower-than-average ones are suppressed.</text>
+</svg>

@@ -1,0 +1,145 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900" role="img" aria-labelledby="title desc">
+  <title id="title">Multilingual dubbing data curation</title>
+  <desc id="desc">A data curation pipeline for speech translation. It starts from IG Reels, filters to clips that are more than 50 percent speech, runs language identification and ASR to transcribe the English source "Good morning", then fans out into four translation branches (Chinese, Hindi, Japanese, Spanish). Each translation is scored against the original transcription with a MetricX model, and alignment and diarization information is appended.</desc>
+  <defs>
+    <style>
+      .bg{fill:#f5efe3}
+      .panel{fill:#fffaf1;stroke:#171512;stroke-width:3}
+      .grid{stroke:#d8ccbb;stroke-width:1;opacity:.55}
+      .line{stroke:#171512;stroke-width:3;fill:none;stroke-linecap:round}
+      .thin{stroke:#171512;stroke-width:2;fill:none;stroke-linecap:round}
+      .clay{fill:#c66c45}.sage{fill:#707d65}.sand{fill:#eadcc8}.ink{fill:#171512}
+      .serif{font-family:Georgia,Times,serif;font-size:54px;font-weight:500;fill:#171512}
+      .sub{font-family:Arial,Helvetica,sans-serif;font-size:21px;fill:#625b50}
+      .label{font-family:Arial,Helvetica,sans-serif;font-size:23px;font-weight:700;fill:#171512}
+      .small{font-family:Arial,Helvetica,sans-serif;font-size:16px;fill:#625b50}
+      .native{font-family:Arial,Helvetica,sans-serif;font-size:22px;font-weight:700;fill:#171512}
+      .nativeon{font-family:Arial,Helvetica,sans-serif;font-size:22px;font-weight:700;fill:#fffaf1}
+      .lang{font-family:Arial,Helvetica,sans-serif;font-size:14px;font-weight:700;fill:#8f4329;letter-spacing:.08em}
+      .langon{font-family:Arial,Helvetica,sans-serif;font-size:14px;font-weight:700;fill:#ffd9c5;letter-spacing:.08em}
+      .score{font-family:Arial,Helvetica,sans-serif;font-size:15px;font-weight:700;fill:#171512}
+      .tag{font-family:Arial,Helvetica,sans-serif;font-size:15px;font-weight:700;fill:#8f4329;letter-spacing:.06em}
+    </style>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#171512"/></marker>
+  </defs>
+
+  <rect class="bg" width="1200" height="900"/>
+  <path class="grid" d="M0 180h1200M0 360h1200M0 540h1200M0 720h1200M200 0v900M400 0v900M600 0v900M800 0v900M1000 0v900"/>
+
+  <text x="70" y="96" class="serif">Dubbing data curation</text>
+  <text x="74" y="134" class="sub">IG Reels &#8594; speech filter &#8594; LID &#8594; ASR &#8594; translate &#8594; score &#8594; enrich</text>
+
+  <!-- ======== TOP LINEAR PIPELINE ======== -->
+  <!-- Reels -->
+  <rect class="panel" x="60" y="190" width="150" height="92" rx="8"/>
+  <text x="135" y="230" class="label" text-anchor="middle">IG Reels</text>
+  <text x="135" y="256" class="small" text-anchor="middle">raw video source</text>
+
+  <!-- speech filter -->
+  <rect class="panel" x="246" y="190" width="196" height="92" rx="8"/>
+  <text x="344" y="230" class="label" text-anchor="middle">Speech filter</text>
+  <text x="344" y="256" class="small" text-anchor="middle">keep &gt; 50% speech</text>
+
+  <!-- LID -->
+  <rect class="panel" x="478" y="190" width="150" height="92" rx="8"/>
+  <text x="553" y="230" class="label" text-anchor="middle">LID</text>
+  <text x="553" y="256" class="small" text-anchor="middle">language = En</text>
+
+  <!-- ASR -->
+  <rect x="664" y="190" width="236" height="92" rx="8" fill="#fffaf1" stroke="#171512" stroke-width="3"/>
+  <text x="782" y="226" class="label" text-anchor="middle">ASR</text>
+  <text x="782" y="254" class="small" text-anchor="middle">En transcription:</text>
+  <text x="782" y="274" class="native" text-anchor="middle" font-size="18">&#8220;Good morning&#8221;</text>
+
+  <path class="line" d="M210 236h32" marker-end="url(#arrow)"/>
+  <path class="line" d="M442 236h32" marker-end="url(#arrow)"/>
+  <path class="line" d="M628 236h32" marker-end="url(#arrow)"/>
+
+  <!-- ======== FAN-OUT TO 4 TRANSLATION BRANCHES (right column) ======== -->
+  <text x="734" y="338" class="tag">FAN OUT &#8212; TRANSLATE</text>
+
+  <!-- branch rows: translation box on the right, fed straight down from ASR -->
+  <!-- Row 1: Chinese (highlighted) -->
+  <rect x="734" y="356" width="386" height="74" rx="10" fill="#c66c45" stroke="#171512" stroke-width="3"/>
+  <text x="754" y="384" class="langon">CHINESE &#183; zh</text>
+  <text x="754" y="414" class="nativeon">&#26089;&#19978;&#22909; <tspan font-size="15" font-weight="400">(z&#462;oshang h&#462;o)</tspan></text>
+
+  <!-- Row 2: Hindi -->
+  <rect class="panel" x="734" y="442" width="386" height="74" rx="10"/>
+  <text x="754" y="470" class="lang">HINDI &#183; hi</text>
+  <text x="754" y="500" class="native">&#2360;&#2369;&#2346;&#2381;&#2352;&#2349;&#2366;&#2340; <tspan font-size="15" font-weight="400" fill="#625b50">(suprabh&#257;t)</tspan></text>
+
+  <!-- Row 3: Japanese -->
+  <rect class="panel" x="734" y="528" width="386" height="74" rx="10"/>
+  <text x="754" y="556" class="lang">JAPANESE &#183; ja</text>
+  <text x="754" y="586" class="native">&#12362;&#12399;&#12424;&#12358; <tspan font-size="15" font-weight="400" fill="#625b50">(ohay&#333;)</tspan></text>
+
+  <!-- Row 4: Spanish -->
+  <rect class="panel" x="734" y="614" width="386" height="74" rx="10"/>
+  <text x="754" y="642" class="lang">SPANISH &#183; es</text>
+  <text x="754" y="672" class="native">Buenos d&#237;as</text>
+
+  <!-- fan-out arrows from ASR bottom curving down into the TOP edge of each branch box -->
+  <path class="thin" d="M860 282 C905 312 920 335 922 352" marker-end="url(#arrow)"/>
+  <path class="thin" d="M885 282 C1010 322 1060 410 1062 438" marker-end="url(#arrow)"/>
+  <path class="thin" d="M895 282 C1070 330 1092 498 1092 524" marker-end="url(#arrow)"/>
+  <path class="thin" d="M905 282 C1120 345 1122 586 1122 610" marker-end="url(#arrow)"/>
+
+  <!-- ======== METRICX SCORING (center column) ======== -->
+  <text x="420" y="338" class="tag">SCORE vs. SOURCE</text>
+  <g>
+    <rect class="sand" x="420" y="356" width="172" height="74" rx="10" stroke="#171512" stroke-width="3"/>
+    <text x="506" y="386" class="score" text-anchor="middle">MetricX</text>
+    <text x="506" y="412" class="score" text-anchor="middle" fill="#8f4329">score 94.2</text>
+  </g>
+  <g>
+    <rect class="sand" x="420" y="442" width="172" height="74" rx="10" stroke="#171512" stroke-width="3"/>
+    <text x="506" y="472" class="score" text-anchor="middle">MetricX</text>
+    <text x="506" y="498" class="score" text-anchor="middle" fill="#8f4329">score 88.7</text>
+  </g>
+  <g>
+    <rect class="sand" x="420" y="528" width="172" height="74" rx="10" stroke="#171512" stroke-width="3"/>
+    <text x="506" y="558" class="score" text-anchor="middle">MetricX</text>
+    <text x="506" y="584" class="score" text-anchor="middle" fill="#8f4329">score 91.5</text>
+  </g>
+  <g>
+    <rect class="sand" x="420" y="614" width="172" height="74" rx="10" stroke="#171512" stroke-width="3"/>
+    <text x="506" y="644" class="score" text-anchor="middle">MetricX</text>
+    <text x="506" y="670" class="score" text-anchor="middle" fill="#8f4329">score 95.8</text>
+  </g>
+  <!-- translation -> MetricX (leftward) -->
+  <path class="thin" d="M734 393H596" marker-end="url(#arrow)"/>
+  <path class="thin" d="M734 479H596" marker-end="url(#arrow)"/>
+  <path class="thin" d="M734 565H596" marker-end="url(#arrow)"/>
+  <path class="thin" d="M734 651H596" marker-end="url(#arrow)"/>
+
+  <!-- source transcription feeds MetricX (dashed, from ASR down the right of nothing -> top MetricX) -->
+  <path class="thin" stroke="#8f4329" stroke-dasharray="6 7" d="M664 236 C600 250 506 300 506 350" marker-end="url(#arrow)"/>
+
+  <!-- ======== APPEND ALIGNMENT + DIARIZATION (left column) ======== -->
+  <rect class="panel" x="60" y="356" width="312" height="332" rx="10"/>
+  <text x="216" y="392" class="label" text-anchor="middle">Append audio info</text>
+  <line x1="84" y1="408" x2="348" y2="408" class="thin"/>
+
+  <circle cx="100" cy="448" r="7" class="clay"/>
+  <text x="120" y="454" class="small" fill="#171512" font-size="17" font-weight="700">Word / phoneme alignment</text>
+  <text x="120" y="478" class="small">map source &amp; target timing</text>
+
+  <circle cx="100" cy="528" r="7" class="sage"/>
+  <text x="120" y="534" class="small" fill="#171512" font-size="17" font-weight="700">Speaker diarization</text>
+  <text x="120" y="558" class="small">who-spoke-when, per speaker</text>
+
+  <circle cx="100" cy="608" r="7" class="sand" stroke="#171512" stroke-width="2"/>
+  <text x="120" y="614" class="small" fill="#171512" font-size="17" font-weight="700">Duration &amp; quality tags</text>
+  <text x="120" y="638" class="small">I/O length, audio-quality flags</text>
+
+  <text x="216" y="676" class="tag" text-anchor="middle">&#8594; curated record</text>
+
+  <!-- converge arrows from MetricX chips (left edge) into append box -->
+  <path class="thin" d="M420 393H376" marker-end="url(#arrow)"/>
+  <path class="thin" d="M420 479H376" marker-end="url(#arrow)"/>
+  <path class="thin" d="M420 565H376" marker-end="url(#arrow)"/>
+  <path class="thin" d="M420 651H376" marker-end="url(#arrow)"/>
+
+  <text x="74" y="760" class="small">Example highlighted: English &#8220;Good morning&#8221; &#8594; Chinese &#26089;&#19978;&#22909;. The same record carries 20+ target languages, each scored and time-aligned.</text>
+</svg>

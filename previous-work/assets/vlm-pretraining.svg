@@ -1,0 +1,121 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900" role="img" aria-labelledby="title desc">
+  <title id="title">70B VLM pretraining</title>
+  <desc id="desc">A two-stage VLM pretraining diagram. Stage one trains a vision encoder with OpenCLIP-style contrastive learning between an image tower and a text tower, scaling image resolution progressively and ablating model architectures. Stage two freezes the vision encoder and the 70B language model, and trains an aligner that maps visual embeddings into the language token space, LLaVA style.</desc>
+  <defs>
+    <style>
+      .bg{fill:#f5efe3}
+      .grid{stroke:#d8ccbb;stroke-width:1;opacity:.55}
+      .panel{fill:#fffaf1;stroke:#171512;stroke-width:3}
+      .stagebox{fill:none;stroke:#171512;stroke-width:2;stroke-dasharray:7 8;opacity:.7}
+      .line{stroke:#171512;stroke-width:3;fill:none;stroke-linecap:round}
+      .thin{stroke:#171512;stroke-width:2;fill:none;stroke-linecap:round}
+      .clay{fill:#c66c45}.sage{fill:#707d65}.sand{fill:#eadcc8}.card{fill:#fffaf1}
+      .ink{fill:#171512}
+      .serif{font-family:Georgia,Times,serif;font-size:60px;font-weight:500;fill:#171512}
+      .sub{font-family:Arial,Helvetica,sans-serif;font-size:22px;fill:#625b50}
+      .stagetag{font-family:Arial,Helvetica,sans-serif;font-size:16px;font-weight:700;fill:#8f4329;letter-spacing:.14em}
+      .label{font-family:Arial,Helvetica,sans-serif;font-size:24px;font-weight:700;fill:#171512}
+      .small{font-family:Arial,Helvetica,sans-serif;font-size:17px;fill:#625b50}
+      .chip{font-family:Arial,Helvetica,sans-serif;font-size:15px;font-weight:700;fill:#171512}
+      .onclay{fill:#fffaf1}
+      .frozen{font-family:Arial,Helvetica,sans-serif;font-size:14px;font-weight:700;fill:#3d6ea5;letter-spacing:.04em}
+    </style>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#171512"/></marker>
+    <marker id="arrowclay" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#8f4329"/></marker>
+  </defs>
+
+  <rect class="bg" width="1200" height="900"/>
+  <path class="grid" d="M0 180h1200M0 360h1200M0 540h1200M0 720h1200M200 0v900M400 0v900M600 0v900M800 0v900M1000 0v900"/>
+
+  <text x="70" y="100" class="serif">70B VLM pretraining</text>
+  <text x="74" y="140" class="sub">Stage 1: train the vision encoder &#183; Stage 2: align vision to language</text>
+
+  <!-- ===================== STAGE 1 ===================== -->
+  <rect class="stagebox" x="48" y="186" width="1104" height="300" rx="12"/>
+  <text x="70" y="214" class="stagetag">STAGE 1 &#8212; OPENCLIP-STYLE VISION ENCODER PRETRAINING</text>
+
+  <!-- image tower -->
+  <rect class="panel" x="70" y="246" width="190" height="200" rx="8"/>
+  <rect class="sand" x="100" y="280" width="60" height="48" rx="6" stroke="#171512" stroke-width="2.5"/>
+  <rect class="clay" x="118" y="298" width="60" height="48" rx="6" stroke="#171512" stroke-width="2.5"/>
+  <rect class="sage" x="136" y="316" width="60" height="48" rx="6" stroke="#171512" stroke-width="2.5"/>
+  <text x="165" y="404" class="label" text-anchor="middle">Image tower</text>
+  <text x="165" y="428" class="small" text-anchor="middle">vision encoder</text>
+
+  <!-- progressive resolution chip, in the gap below the towers -->
+  <rect class="sand" x="284" y="470" width="186" height="30" rx="15" stroke="#171512" stroke-width="2"/>
+  <text x="377" y="490" class="chip" text-anchor="middle">&#8593; res. 224&#8594;336&#8594;448&#8594;&#8230;</text>
+
+  <!-- contrastive matrix -->
+  <g>
+    <rect class="card" x="470" y="250" width="190" height="180" rx="8" stroke="#171512" stroke-width="3"/>
+    <g stroke="#171512" stroke-width="1.5" opacity=".55">
+      <path d="M470 295h190M470 340h190M470 385h190M515 250v180M560 250v180M605 250v180"/>
+    </g>
+    <rect class="clay" x="470" y="250" width="45" height="45"/>
+    <rect class="clay" x="515" y="295" width="45" height="45"/>
+    <rect class="clay" x="560" y="340" width="45" height="45"/>
+    <rect class="clay" x="605" y="385" width="45" height="45"/>
+    <text x="565" y="452" class="label" text-anchor="middle">Contrastive</text>
+    <text x="565" y="476" class="small" text-anchor="middle">match image &#8596; text pairs</text>
+  </g>
+
+  <!-- text tower -->
+  <rect class="panel" x="870" y="246" width="190" height="200" rx="8"/>
+  <path class="line" stroke-width="2.5" d="M900 296h130M900 326h96M900 356h130M900 386h74"/>
+  <text x="965" y="404" class="label" text-anchor="middle">Text tower</text>
+  <text x="965" y="428" class="small" text-anchor="middle">caption encoder</text>
+
+  <!-- arrows into contrastive matrix -->
+  <path class="line" d="M262 338h206" marker-end="url(#arrow)"/>
+  <path class="line" d="M868 338H662" marker-end="url(#arrow)"/>
+
+  <!-- arch ablation chip -->
+  <g>
+    <rect class="sand" x="690" y="200" width="360" height="34" rx="17" stroke="#171512" stroke-width="2"/>
+    <text x="710" y="223" class="chip">&#9670; ablate architectures: ViT-L / ViT-H / ViT-g, patch size, depth</text>
+  </g>
+
+  <!-- ===================== handoff: encoder reused in stage 2 ===================== -->
+  <path class="thin" stroke="#8f4329" stroke-dasharray="7 7" d="M160 446 V612" marker-end="url(#arrowclay)"/>
+  <text x="176" y="512" class="stagetag">REUSE</text>
+  <text x="176" y="532" class="stagetag">FROZEN</text>
+
+  <!-- ===================== STAGE 2 ===================== -->
+  <rect class="stagebox" x="48" y="556" width="1104" height="300" rx="12"/>
+  <text x="70" y="584" class="stagetag">STAGE 2 &#8212; LLAVA-STYLE ALIGNER PRETRAINING</text>
+
+  <!-- frozen vision encoder -->
+  <rect class="panel" x="70" y="616" width="180" height="190" rx="8"/>
+  <circle cx="160" cy="690" r="42" class="sage" stroke="#171512" stroke-width="3"/>
+  <circle cx="160" cy="690" r="25" class="sand" stroke="#171512" stroke-width="3"/>
+  <circle cx="160" cy="690" r="10" class="clay" stroke="#171512" stroke-width="3"/>
+  <text x="160" y="762" class="label" text-anchor="middle">Vision enc.</text>
+  <text x="160" y="786" class="frozen" text-anchor="middle">&#10052; frozen</text>
+
+  <!-- aligner (the trained part) -->
+  <rect x="360" y="626" width="220" height="170" rx="8" fill="#c66c45" stroke="#171512" stroke-width="3"/>
+  <path d="M392 678h156M392 711h156M392 744h110" class="line" stroke="#fffaf1" stroke-width="2.5"/>
+  <text x="470" y="662" class="label onclay" text-anchor="middle">Aligner</text>
+  <text x="470" y="788" class="small onclay" text-anchor="middle">projects visual &#8594; text space</text>
+
+  <!-- 70B LLM -->
+  <rect class="panel" x="690" y="616" width="370" height="190" rx="8"/>
+  <g stroke="#171512" stroke-width="2.5" fill="none">
+    <rect x="726" y="650" width="40" height="120" rx="6" class="sand"/>
+    <rect x="780" y="650" width="40" height="120" rx="6" class="sand"/>
+    <rect x="834" y="650" width="40" height="120" rx="6" class="sand"/>
+    <rect x="888" y="650" width="40" height="120" rx="6" class="clay"/>
+    <rect x="942" y="650" width="40" height="120" rx="6" class="sand"/>
+  </g>
+  <text x="875" y="800" class="label" text-anchor="middle">70B language model</text>
+  <text x="1008" y="640" class="frozen" text-anchor="end">&#10052; frozen</text>
+
+  <!-- stage 2 flow arrows -->
+  <path class="line" d="M252 711h104" marker-end="url(#arrow)"/>
+  <path class="line" d="M582 711h104" marker-end="url(#arrow)"/>
+
+  <!-- gradient-only-to-aligner hint -->
+  <path class="thin" stroke="#8f4329" stroke-dasharray="6 7" d="M470 626c0-28 0-44 0-60" marker-end="url(#arrowclay)"/>
+  <text x="470" y="548" class="stagetag" text-anchor="middle">train aligner only</text>
+</svg>

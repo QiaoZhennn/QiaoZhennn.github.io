@@ -1,0 +1,92 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900" role="img" aria-labelledby="title desc">
+  <title id="title">Realtime barge-in training data</title>
+  <desc id="desc">A worked example of barge-in data construction. The assistant says "Good morning, today is a sunny day, temperature is 25 degrees celsius, you don't need to bring an umbrella." The user interrupts at the word 25; the assistant drops the remaining audio after celsius and dims out, and the user says "What's the weather in San Francisco?".</desc>
+  <defs>
+    <style>
+      .bg{fill:#f5efe3}
+      .panel{fill:#fffaf1;stroke:#171512;stroke-width:3}
+      .grid{stroke:#d8ccbb;stroke-width:1;opacity:.55}
+      .line{stroke:#171512;stroke-width:3;fill:none;stroke-linecap:round}
+      .dash{stroke:#171512;stroke-width:2.5;fill:none;stroke-dasharray:9 9}
+      .clay{fill:#c66c45}.sage{fill:#707d65}.sand{fill:#eadcc8}.ink{fill:#171512}
+      .serif{font-family:Georgia,Times,serif;font-size:60px;font-weight:500;fill:#171512}
+      .sub{font-family:Arial,Helvetica,sans-serif;font-size:22px;fill:#625b50}
+      .lane{font-family:Arial,Helvetica,sans-serif;font-size:18px;font-weight:700;fill:#171512;letter-spacing:.04em}
+      .tok{font-family:Arial,Helvetica,sans-serif;font-size:18px;font-weight:600;fill:#171512}
+      .tokdim{font-family:Arial,Helvetica,sans-serif;font-size:18px;font-weight:600;fill:#b9ac99}
+      .tokon{font-family:Arial,Helvetica,sans-serif;font-size:18px;font-weight:600;fill:#fffaf1}
+      .mark{font-family:Arial,Helvetica,sans-serif;font-size:15px;font-weight:700;fill:#8f4329;letter-spacing:.06em}
+      .small{font-family:Arial,Helvetica,sans-serif;font-size:17px;fill:#625b50}
+    </style>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#171512"/></marker>
+  </defs>
+
+  <rect class="bg" width="1200" height="900"/>
+  <path class="grid" d="M0 180h1200M0 360h1200M0 540h1200M0 720h1200M200 0v900M400 0v900M600 0v900M800 0v900M1000 0v900"/>
+
+  <text x="70" y="100" class="serif">Realtime barge-in</text>
+  <text x="74" y="140" class="sub">Worked example: the user cuts in mid-answer and the assistant stops naturally</text>
+
+  <!-- vertical event lines: breakpoint at "25", cutoff after "celsius" -->
+  <line x1="596" y1="288" x2="596" y2="690" class="dash"/>
+  <line x1="726" y1="288" x2="726" y2="690" class="dash"/>
+  <text x="596" y="246" class="mark" text-anchor="middle">BREAKPOINT t &#8212; user cuts in at &#8220;25&#8221;</text>
+  <text x="726" y="278" class="mark" text-anchor="middle">CUTOFF t + 0.1&#8211;1s</text>
+
+  <!-- ============ ASSISTANT LANE ============ -->
+  <text x="74" y="322" class="lane">ASSISTANT</text>
+  <rect class="sand" x="70" y="338" width="1060" height="100" rx="14" stroke="#171512" stroke-width="3"/>
+
+  <!-- spoken (kept) portion up to cutoff -->
+  <text x="92" y="382" class="tok">Good morning, today is a sunny day, temperature is</text>
+  <!-- the interrupted word region 25 ... celsius (between breakpoint and cutoff) -->
+  <text x="606" y="382" class="tok">25 degrees celsius</text>
+  <!-- discarded tail, dimmed -->
+  <text x="744" y="382" class="tokdim">, you don&#8217;t need to bring an umbrella.</text>
+
+  <!-- waveform strip under the text -->
+  <g stroke="#171512" stroke-width="3" stroke-linecap="round">
+    <path d="M96 426v-12M114 426v-22M132 426v-7M150 426v-24M168 426v-15M186 426v-20M204 426v-9M222 426v-23M240 426v-13M258 426v-18M276 426v-10M294 426v-22M312 426v-8M330 426v-20M348 426v-15M366 426v-23M384 426v-10M402 426v-18M420 426v-13M438 426v-22M456 426v-9M474 426v-20M492 426v-15M510 426v-21M528 426v-10M546 426v-18M564 426v-13M582 426v-20"/>
+  </g>
+  <!-- waveform in the interrupted-but-kept window (breakpoint->cutoff), clay tinted -->
+  <g stroke="#8f4329" stroke-width="3" stroke-linecap="round">
+    <path d="M606 426v-16M624 426v-23M642 426v-10M660 426v-20M678 426v-13M696 426v-22M714 426v-12"/>
+  </g>
+  <!-- dropped tail waveform, faint -->
+  <g stroke="#cbbda7" stroke-width="3" stroke-linecap="round">
+    <path d="M744 426v-10M762 426v-16M780 426v-8M798 426v-15M816 426v-10M834 426v-18M852 426v-9M870 426v-13M888 426v-10M906 426v-16M924 426v-8"/>
+  </g>
+
+  <!-- dim-out gradient arrow over the dropped tail -->
+  <path d="M732 462h360" class="line" stroke="#8f4329" stroke-width="6" stroke-dasharray="14 12" marker-end="url(#arrow)"/>
+  <text x="912" y="492" class="mark" text-anchor="middle">assistant audio dropped &amp; dimmed out</text>
+
+  <!-- ============ USER LANE ============ -->
+  <text x="74" y="578" class="lane">USER</text>
+  <!-- user utterance starts at breakpoint, overlaps assistant briefly then continues -->
+  <rect class="clay" x="596" y="596" width="430" height="92" rx="14" stroke="#171512" stroke-width="3"/>
+  <text x="811" y="648" class="tokon" text-anchor="middle">What&#8217;s the weather in San Francisco?</text>
+  <g stroke="#fffaf1" stroke-width="3" stroke-linecap="round" opacity=".85">
+    <path d="M620 666v-16M638 666v-26M656 666v-10M674 666v-22M692 666v-14"/>
+  </g>
+  <text x="600" y="582" class="mark">user barge-in begins (overlaps assistant)</text>
+
+  <!-- overlap bracket between breakpoint and cutoff -->
+  <path d="M596 702v12h130v-12" class="line" stroke-width="2.5"/>
+  <text x="661" y="736" class="small" text-anchor="middle">overlap window</text>
+
+  <!-- ============ time axis ============ -->
+  <line x1="70" y1="772" x2="1100" y2="772" class="line" marker-end="url(#arrow)"/>
+  <text x="70" y="800" class="small">assistant turn begins</text>
+  <text x="1096" y="800" class="small" text-anchor="end">time</text>
+
+  <!-- legend -->
+  <g transform="translate(74,828)">
+    <rect class="sand" x="0" y="-14" width="22" height="18" rx="4" stroke="#171512" stroke-width="2"/>
+    <text x="30" y="0" class="small">kept assistant audio</text>
+    <rect class="clay" x="240" y="-14" width="22" height="18" rx="4" stroke="#171512" stroke-width="2"/>
+    <text x="270" y="0" class="small">user interruption</text>
+    <rect fill="#ece3d4" x="470" y="-14" width="22" height="18" rx="4" stroke="#cbbda7" stroke-width="2"/>
+    <text x="500" y="0" class="small">discarded assistant tail (dimmed)</text>
+  </g>
+</svg>

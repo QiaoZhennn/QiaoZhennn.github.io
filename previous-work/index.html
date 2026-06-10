@@ -1,0 +1,563 @@
+<!doctype html>
+<html lang="en" data-mode="technical">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Zhen Qiao's portfolio of LLM-related projects across VLM, Llama 4 full-duplex speech generation, and Avocado speech understanding."
+    />
+    <title>Zhen Qiao | LLM Related Projects</title>
+    <link rel="icon" href="assets/favicon.svg" type="image/svg+xml" />
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <a class="skip-link" href="#main">Skip to content</a>
+
+    <header class="site-header" data-elevated="false">
+      <div class="nav-shell">
+        <a class="brand" href="#top" aria-label="Previous work home">
+          <span class="brand-mark" aria-hidden="true"></span>
+          <span>Zhen Qiao</span>
+        </a>
+
+        <nav class="site-nav" aria-label="Primary navigation">
+          <a href="#projects">Projects</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="main">
+      <section class="hero" id="top">
+        <div class="hero-copy">
+          <p class="eyebrow">Zhen Qiao</p>
+          <h1>
+            Previous projects sharing:
+          </h1>
+          <p class="hero-lede">
+            Today I am sharing selected work from my time at Meta, focused on
+            three directions in large-scale multimodal model development.
+          </p>
+
+          <ol class="direction-list" aria-label="Talk directions">
+            <li>
+              <span>01</span>
+              <strong>VLM, En</strong>
+            </li>
+            <li>
+              <span>02</span>
+              <strong>Speech generation, En</strong>
+            </li>
+            <li>
+              <span>03</span>
+              <strong>Speech understanding, Multilingual</strong>
+            </li>
+          </ol>
+        </div>
+
+        <aside class="hero-panel" aria-label="Portfolio highlights">
+          <div class="panel-kicker">Scaling highlights</div>
+          <div class="signal-list">
+            <div>
+              <strong>10k GPUs</strong>
+              <span>peak offline inference and curation parallelism</span>
+            </div>
+            <div>
+              <strong>5B+</strong>
+              <span>visual-caption examples curated and processed</span>
+            </div>
+            <div>
+              <strong>200M+</strong>
+              <span>hours of multilingual speech data curation</span>
+            </div>
+          </div>
+
+          <div class="about-me">
+            <div class="panel-kicker">About me</div>
+            <p>
+              I have lived in California for nine years, with experience across
+              self-driving systems and multimodal LLMs. Previously, I worked on
+              the Meta MSL team in Menlo Park.
+            </p>
+            <p>
+              Outside work, I recharge through badminton 🏸, travel ✈️, and
+              food 🍜. I also love vibe coding ✨ practical tools for everyday
+              life.
+            </p>
+            <div class="vibe-list" aria-label="Vibe coding projects">
+              <details>
+                <summary>1. Menu translate to visual</summary>
+                <p>
+                  A mobile app that turns foreign food menus into visual
+                  choices by combining Google image search with Gemini image
+                  generation.
+                </p>
+              </details>
+              <details>
+                <summary>2. Daily recap</summary>
+                <p>
+                  A CatX agent workflow that browses my raw local chat history
+                  on my MacBook, then turns the useful bits into daily recaps
+                  and TIL summaries so I can keep my learning loop tight.
+                </p>
+              </details>
+              <details>
+                <summary>3. Etc.</summary>
+                <ul>
+                  <li>Paper reading and examining agent</li>
+                  <li>Auto AI Engineer Agent</li>
+                  <li>Proactive agent that reminds me to exercise via WhatsApp</li>
+                  <li>Other small agents for personal workflows</li>
+                </ul>
+              </details>
+            </div>
+            <p>
+              My dream is to erase human language barriers, and I am glad to
+              join the LongCat team to push the boundary of human-computer
+              interaction.
+            </p>
+          </div>
+        </aside>
+      </section>
+
+      <section class="control-band" id="projects" aria-label="Project filters">
+        <div class="controls" aria-label="Project controls">
+          <div class="filter-group" role="tablist" aria-label="Filter projects">
+            <button class="filter-button is-active" type="button" data-filter="vlm" role="tab" aria-selected="true">
+              VLM
+            </button>
+            <button class="filter-button" type="button" data-filter="duplex" role="tab" aria-selected="false">
+              Full-duplex speech
+            </button>
+            <button class="filter-button" type="button" data-filter="avocado" role="tab" aria-selected="false">
+              Avocado speech
+            </button>
+          </div>
+        </div>
+      </section>
+
+      <section class="project-list" aria-label="Project case studies">
+        <article class="project-card" data-category="vlm">
+          <figure class="project-visual">
+            <img src="assets/vlm-data-funnel.svg" alt="Funnel diagram of a VLM image and video annotation pipeline" />
+          </figure>
+          <div class="project-body">
+            <p class="project-kicker">VLM related / Project 01</p>
+            <h3>Large-Scale Image and Video Annotation Pipeline</h3>
+            <p class="project-summary">
+              Designed a high-throughput annotation and filtering pipeline to
+              curate image and video data for a VLM deployed on smart glasses,
+              enabling concise, high-fidelity answers to visual queries.
+            </p>
+
+            <div class="project-meta">
+              <div>
+                <span>Scale</span>
+                <strong>Thousands of V100/A100 GPUs</strong>
+              </div>
+              <div>
+                <span>Media</span>
+                <strong>First-party and third-party media</strong>
+              </div>
+              <div>
+                <span>Throughput</span>
+                <strong>Billion samples per day</strong>
+              </div>
+            </div>
+
+            <p class="narrative-note">
+              The work focused on turning raw, heterogeneous web and internal
+              media into high-value training examples while respecting privacy
+              and quality constraints.
+            </p>
+
+            <div class="technical-note">
+              <h4>Technical emphasis</h4>
+              <p>
+                The system coordinated concurrent GPU inference with high
+                throughput data loading and writing, then composed multiple
+                model passes into a repeatable enrichment graph.
+              </p>
+            </div>
+
+            <details class="project-details">
+              <summary>
+                <span>Pipeline stages</span>
+                <span class="summary-icon" aria-hidden="true"></span>
+              </summary>
+              <ol>
+                <li>Start from first-party and third-party raw media.</li>
+                <li>Filter by visual quality: resolution, brightness, blurriness, temporal difference, aesthetics, and related signals.</li>
+                <li>Apply privacy mitigation through face blurring.</li>
+                <li>Run named entity recognition on original captions.</li>
+                <li>Run classification and object detection on original images.</li>
+                <li>Re-caption images and videos.</li>
+                <li>Score CLIP similarity.</li>
+                <li>Evaluate quality and run ablations.</li>
+              </ol>
+            </details>
+          </div>
+        </article>
+
+        <article class="project-card" data-category="vlm">
+          <figure class="project-visual">
+            <img src="assets/vlm-pretraining.svg" alt="Two-stage VLM pretraining: OpenCLIP-style contrastive vision encoder training, then LLaVA-style aligner training with frozen encoder and 70B language model" />
+          </figure>
+          <div class="project-body">
+            <p class="project-kicker">VLM related / Project 02</p>
+            <h3>70B Vision-Language Model Pretraining</h3>
+            <p class="project-summary">
+              Contributed to a LLaVA-style 70B VLM pretraining program that
+              first built a strong vision encoder with OpenCLIP-style
+              contrastive training, then connected it to a large language model
+              through aligner training over the frozen encoder and backbone.
+            </p>
+
+            <div class="project-meta">
+              <div>
+                <span>Model class</span>
+                <strong>70B VLM</strong>
+              </div>
+              <div>
+                <span>Training style</span>
+                <strong>Contrastive encoder + aligner</strong>
+              </div>
+              <div>
+                <span>Dataset</span>
+                <strong>Curated image-caption pairs</strong>
+              </div>
+            </div>
+
+            <p class="narrative-note">
+              The core idea was to improve visual grounding before alignment:
+              build a strong visual representation, then teach the language
+              model how to use it.
+            </p>
+
+            <div class="technical-note">
+              <h4>Technical emphasis</h4>
+              <p>
+                Stage one trained the vision encoder with OpenCLIP-style
+                contrastive learning on curated image-caption pairs, scaling
+                image resolution progressively and ablating encoder
+                architectures. Stage two froze the encoder and the language
+                backbone, training only the aligner to map visual embeddings
+                into the language token space.
+              </p>
+            </div>
+
+            <details class="project-details">
+              <summary>
+                <span>Training stages</span>
+                <span class="summary-icon" aria-hidden="true"></span>
+              </summary>
+              <ol>
+                <li>Train the vision encoder with OpenCLIP-style image-text contrastive learning on curated pairs.</li>
+                <li>Scale image resolution progressively and ablate encoder architectures to pick the strongest backbone.</li>
+                <li>Freeze the trained vision encoder and the 70B language model.</li>
+                <li>Train the aligner to project visual embeddings into the language token space, LLaVA style.</li>
+              </ol>
+            </details>
+          </div>
+        </article>
+
+        <article class="project-card is-hidden" data-category="duplex">
+          <figure class="project-visual">
+            <img src="assets/speech-steerability.svg" alt="Diagram showing voice-controlled persona steering for speech models" />
+          </figure>
+          <div class="project-body">
+            <p class="project-kicker">Llama 4 full-duplex speech / Project 03</p>
+            <h3>Speech Steerability and Persona Control</h3>
+            <p class="project-summary">
+              Developed post-training data patterns for a full-duplex speech
+              model so users could control response style through voice and
+              steer the assistant across more than 20 personas.
+            </p>
+
+            <div class="project-meta">
+              <div>
+                <span>Capability</span>
+                <strong>Voice-driven style control</strong>
+              </div>
+              <div>
+                <span>Coverage</span>
+                <strong>20+ personas</strong>
+              </div>
+              <div>
+                <span>Data mode</span>
+                <strong>Human voice + TTS + voice cloning</strong>
+              </div>
+            </div>
+
+            <p class="narrative-note">
+              The project made persona changes feel like a natural part of a
+              spoken conversation instead of a brittle prompt-only instruction.
+            </p>
+
+            <div class="technical-note">
+              <h4>Technical emphasis</h4>
+              <p>
+                Data design covered normal conversations, persona rewrites,
+                persona transition instructions, and multi-speaker sessions
+                where user and assistant could carry different styles.
+              </p>
+            </div>
+
+            <details class="project-details">
+              <summary>
+                <span>Post-training recipe</span>
+                <span class="summary-icon" aria-hidden="true"></span>
+              </summary>
+              <ol>
+                <li>Start with neutral conversational examples.</li>
+                <li>Rewrite assistant responses into target personas.</li>
+                <li>Create explicit transitions between personas, including return-to-normal cases.</li>
+                <li>Record voice actors, synthesize variants, and preserve speaker/persona separation.</li>
+              </ol>
+            </details>
+          </div>
+        </article>
+
+        <article class="project-card is-hidden" data-category="duplex">
+          <figure class="project-visual">
+            <img src="assets/realtime-barge-in.svg" alt="Worked example timeline: the assistant says a weather report, the user barges in at the word 25, and the assistant drops its remaining audio and dims out while the user asks about San Francisco weather" />
+          </figure>
+          <div class="project-body">
+            <p class="project-kicker">Llama 4 full-duplex speech / Project 04</p>
+            <h3>Realtime Barge-In Behavior</h3>
+            <p class="project-summary">
+              Designed training data that allowed users to interrupt the
+              assistant mid-response, producing more natural full-duplex
+              conversational behavior during realtime speech interaction.
+            </p>
+
+            <div class="project-meta">
+              <div>
+                <span>Capability</span>
+                <strong>Natural interruption</strong>
+              </div>
+              <div>
+                <span>Timing</span>
+                <strong>0.1s to 1s cutoff windows</strong>
+              </div>
+              <div>
+                <span>Evaluation</span>
+                <strong>Ablation-driven breakpoint selection</strong>
+              </div>
+            </div>
+
+            <p class="narrative-note">
+              For example, the assistant is mid-sentence &mdash; &ldquo;Good
+              morning, today is a sunny day, temperature is 25 degrees
+              celsius&hellip;&rdquo; &mdash; when the user cuts in at
+              &ldquo;25&rdquo; to ask &ldquo;What&rsquo;s the weather in San
+              Francisco?&rdquo;. The assistant stops shortly after, dropping the
+              rest of its answer instead of talking over the user.
+            </p>
+
+            <div class="technical-note">
+              <h4>Technical emphasis</h4>
+              <p>
+                Starting from a normal turn, the data construction selected a
+                breakpoint inside the assistant audio (here, at the word
+                &ldquo;25&rdquo;), overlaid the user&rsquo;s next utterance, then
+                discarded the trailing assistant audio after a short
+                0.1&ndash;1s cutoff so the model learns to taper off naturally.
+              </p>
+            </div>
+
+            <details class="project-details">
+              <summary>
+                <span>Data construction</span>
+                <span class="summary-icon" aria-hidden="true"></span>
+              </summary>
+              <ol>
+                <li>Start from a normal turn: the assistant answers &ldquo;&hellip;temperature is 25 degrees celsius, you don&rsquo;t need to bring an umbrella.&rdquo;</li>
+                <li>Select a breakpoint inside the assistant turn &mdash; the user barges in at &ldquo;25&rdquo;.</li>
+                <li>Overlay the user&rsquo;s utterance (&ldquo;What&rsquo;s the weather in San Francisco?&rdquo;) on top of the assistant audio.</li>
+                <li>Cut and dim the remaining assistant audio 0.1&ndash;1s after the breakpoint, discarding the &ldquo;umbrella&rdquo; tail, and train on the interrupted session.</li>
+              </ol>
+            </details>
+          </div>
+        </article>
+
+        <article class="project-card is-hidden" data-category="avocado">
+          <figure class="project-visual">
+            <img src="assets/avocado-asr-curation.svg" alt="Diagram showing one waveform cut by VAD into eight segments, sorted by duration, grouped and padded, then one segment zoomed through code-switch language identification, Gemma ASR, and alignment" />
+          </figure>
+          <div class="project-body">
+            <p class="project-kicker">Avocado speech model / Project 05</p>
+            <h3>Multilingual ASR Pretraining Data Curation</h3>
+            <p class="project-summary">
+              Built a very large-scale curation pipeline for an in-house ASR
+              model targeting written-form transcription across more than 40
+              priority languages and 200M+ hours of speech.
+            </p>
+
+            <div class="project-meta">
+              <div>
+                <span>Scale</span>
+                <strong>200M+ hours</strong>
+              </div>
+              <div>
+                <span>Parallelism</span>
+                <strong>Peak 10k GPUs</strong>
+              </div>
+              <div>
+                <span>Languages</span>
+                <strong>40+ priority languages</strong>
+              </div>
+            </div>
+
+            <p class="narrative-note">
+              The work emphasized practical multilingual coverage, especially
+              the messy cases where language boundaries blur inside one speech
+              segment.
+            </p>
+
+            <div class="technical-note">
+              <h4>Technical emphasis</h4>
+              <p>
+                The pipeline combined VAD, LID, model-routed ASR, multilingual
+                alignment, and diarization with infrastructure improvements for
+                vLLM serving, length-based packing, and Blackwell GPU support.
+              </p>
+            </div>
+
+            <details class="project-details">
+              <summary>
+                <span>Curation stages</span>
+                <span class="summary-icon" aria-hidden="true"></span>
+              </summary>
+              <ol>
+                <li>Detect speech regions with VAD.</li>
+                <li>Run language identification, including code-switching ablations.</li>
+                <li>Route ASR workloads to language-appropriate models.</li>
+                <li>Pack audio by length to reduce padding waste and improve GPU utilization.</li>
+                <li>Apply multilingual alignment and speaker diarization.</li>
+              </ol>
+            </details>
+          </div>
+        </article>
+
+        <article class="project-card is-hidden" data-category="avocado">
+          <figure class="project-visual is-stacked">
+            <img src="assets/avocado-dubbing-posttrain.svg" alt="Dubbing data curation pipeline: IG Reels filtered to over 50 percent speech, then LID, ASR of the English source, fan-out into Chinese, Hindi, Japanese, and Spanish translations scored by MetricX, with alignment and diarization appended" />
+            <div class="stacked-figure">
+              <img src="assets/avocado-grpo-reward.svg" alt="GRPO reward design: a policy samples a group of candidate dubbing responses, each scored on multiple rewards (format, duration match, transcription match, translation quality via MetricX, speaker similarity, accent or native-soundingness), then normalized into group-relative advantages that update the policy" />
+              <figcaption>
+                GRPO scores each sampled dubbing response on multiple reward
+                dimensions, then reinforces above-average samples relative to the
+                group mean &mdash; no separate critic network required.
+              </figcaption>
+            </div>
+          </figure>
+          <div class="project-body">
+            <p class="project-kicker">Avocado speech model / Project 06</p>
+            <h3>Multilingual Dubbing Post-Training and Data Curation</h3>
+            <p class="project-summary">
+              Curated and post-trained an offline speech-and-text to speech
+              translation model supporting more than 20 priority languages, with
+              explicit control over transcript, translation, timing, and speaker
+              similarity.
+            </p>
+
+            <div class="project-meta">
+              <div>
+                <span>Task</span>
+                <strong>Speech translation and dubbing</strong>
+              </div>
+              <div>
+                <span>Coverage</span>
+                <strong>20+ target languages</strong>
+              </div>
+              <div>
+                <span>Optimization</span>
+                <strong>GRPO reward design</strong>
+              </div>
+            </div>
+
+            <p class="narrative-note">
+              The model learned to preserve meaning and speaker identity while
+              producing translated speech tokens, with surprisingly strong
+              generalization to singing.
+            </p>
+
+            <div class="technical-note">
+              <h4>Technical emphasis</h4>
+              <p>
+                Curation began from IG Reels filtered to clips that are more
+                than 50% speech, then ran LID and ASR before fanning out into
+                20+ target-language translations &mdash; each scored against the
+                source transcription with a MetricX model and enriched with
+                alignment and diarization. Post-training examples interleaved
+                the translated text with discrete speech tokens that
+                reconstruct into waveform, optimized with GRPO rewards for
+                format, duration, transcription consistency, translation
+                quality, speaker similarity, and accent control.
+              </p>
+              <pre><code>user: [audio tokens] This is the transcription of the
+      English speech: "Good morning, how are you today?"
+      Translate the English speech into Chinese.
+
+assistant:
+  Transcription: Good morning, how are you today?
+  Translation:   早上好，你今天过得怎么样？
+  Interleaved text + speech tokens:
+      早上好 &lt;vq0&gt;&lt;vq1&gt; ，你今天 &lt;vq2&gt;&lt;vq3&gt; 过得
+      怎么样 &lt;vq4&gt;&lt;vq5&gt; ？
+
+# &lt;vqN&gt; are discrete speech tokens decoded back into a
+# translated, speaker-matched Chinese waveform.</code></pre>
+            </div>
+
+            <details class="project-details">
+              <summary>
+                <span>Training and reward design</span>
+                <span class="summary-icon" aria-hidden="true"></span>
+              </summary>
+              <ol>
+                <li>Start from IG Reels and keep clips that are more than 50% speech.</li>
+                <li>Run LID, then ASR to transcribe the source (e.g. English &ldquo;Good morning, how are you today?&rdquo;).</li>
+                <li>Fan out into 20+ target-language translations (Chinese, Hindi, Japanese, Spanish, and more).</li>
+                <li>Score each translation against the source transcription with MetricX, then append alignment, diarization, and quality tags.</li>
+                <li>Post-train with interleaved text and discrete speech tokens, using GRPO to reward format, duration, content match, speaker similarity, and native-sounding output.</li>
+              </ol>
+            </details>
+
+            <div class="related-products">
+              <p class="related-kicker">Similar products in industry</p>
+              <ul class="related-list">
+                <li>
+                  <a href="https://www.boson.ai/workspace/avatar-preview" target="_blank" rel="noopener noreferrer">Boson AI &mdash; Higgs Audio / Avatar</a>
+                  <span>Expressive multilingual TTS, voice cloning, and real-time speech avatars built on audio foundation models.</span>
+                </li>
+                <li>
+                  <a href="https://blog.youtube/news-and-events/youtube-auto-dubbing-expressive-speech/" target="_blank" rel="noopener noreferrer">YouTube &mdash; Auto-dubbing &amp; Expressive Speech</a>
+                  <span>Automatic video dubbing across 27 languages, preserving creator emotion and piloting lip-sync to the translated audio.</span>
+                </li>
+                <li>
+                  <a href="https://zhuanlan.zhihu.com/p/1938332237008442105" target="_blank" rel="noopener noreferrer">Bilibili &mdash; AI dubbing</a>
+                  <span>AI-driven video dubbing and speech translation for localizing creator content.</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </article>
+      </section>
+
+    </main>
+
+    <footer class="site-footer">
+      <div>
+        <strong>Zhen Qiao</strong>
+        <p>Selected LLM-related projects across vision and speech.</p>
+      </div>
+      <a href="#top">Back to top</a>
+    </footer>
+
+    <div class="toast" role="status" aria-live="polite"></div>
+
+    <script src="script.js"></script>
+  </body>
+</html>

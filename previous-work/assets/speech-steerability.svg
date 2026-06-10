@@ -1,0 +1,100 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1200" height="900" viewBox="0 0 1200 900" role="img" aria-labelledby="title desc">
+  <title id="title">Speech steerability and persona control</title>
+  <desc id="desc">A two-column chat transcript between a user and a speech assistant. Across three turns the user steers the assistant by voice from a Normal persona into a Valley Girl persona and then a Mad Scientist persona.</desc>
+  <defs>
+    <style>
+      .bg{fill:#f5efe3}
+      .panel{fill:#fffaf1;stroke:#171512;stroke-width:3}
+      .userBubble{fill:#eadcc8;stroke:#171512;stroke-width:3}
+      .botBubble{fill:#fffaf1;stroke:#171512;stroke-width:3}
+      .line{stroke:#171512;stroke-width:3;fill:none;stroke-linecap:round}
+      .clay{fill:#c66c45}.sage{fill:#707d65}.sand{fill:#eadcc8}.ink{fill:#171512}
+      .head{font-family:Arial,Helvetica,sans-serif;font-size:28px;font-weight:700;fill:#171512}
+      .msg{font-family:Arial,Helvetica,sans-serif;font-size:23px;fill:#171512}
+      .small{font-family:Arial,Helvetica,sans-serif;font-size:22px;fill:#625b50}
+      .tiny{font-family:Arial,Helvetica,sans-serif;font-size:18px;fill:#625b50}
+      .pill{font-family:Arial,Helvetica,sans-serif;font-size:18px;font-weight:700;fill:#fffaf1}
+      .serif{font-family:Georgia,Times,serif;font-size:72px;font-weight:500;fill:#171512}
+    </style>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="7" markerHeight="7" orient="auto-start-reverse"><path d="M0 0L10 5L0 10z" fill="#171512"/></marker>
+  </defs>
+
+  <rect class="bg" width="1200" height="900"/>
+  <path d="M0 180h1200M0 360h1200M0 540h1200M0 720h1200M200 0v900M400 0v900M600 0v900M800 0v900M1000 0v900" stroke="#d8ccbb" stroke-width="1" opacity=".7"/>
+
+  <text x="70" y="110" class="serif">Speech steerability</text>
+  <text x="74" y="154" class="small">Voice-controlled persona steering across a single spoken session</text>
+
+  <!-- Column headers -->
+  <g>
+    <circle cx="210" cy="210" r="20" class="sand" stroke="#171512" stroke-width="3"/>
+    <path d="M198 210h24M210 198v24" class="line"/>
+    <text x="244" y="218" class="head">User</text>
+  </g>
+  <g>
+    <circle cx="770" cy="210" r="20" class="clay" stroke="#171512" stroke-width="3"/>
+    <path d="M752 210h36" class="line"/>
+    <text x="804" y="218" class="head">Assistant</text>
+  </g>
+
+  <!-- Column guide lines -->
+  <path d="M150 250v540" stroke="#d8ccbb" stroke-width="2"/>
+  <path d="M1050 250v540" stroke="#d8ccbb" stroke-width="2"/>
+
+  <!-- ================= TURN 1 : Normal ================= -->
+  <!-- user -->
+  <rect x="120" y="278" width="420" height="74" rx="14" class="userBubble"/>
+  <path d="M150 352l-2 26 30-26z" class="userBubble"/>
+  <text x="150" y="322" class="msg">Good morning.</text>
+  <!-- assistant -->
+  <rect x="640" y="278" width="440" height="74" rx="14" class="botBubble"/>
+  <path d="M1050 352l2 26-30-26z" class="botBubble"/>
+  <text x="666" y="322" class="msg">Morning.</text>
+  <rect x="912" y="294" width="116" height="34" rx="17" class="sage" stroke="#171512" stroke-width="3"/>
+  <text x="930" y="317" class="pill">Normal</text>
+  <!-- connector -->
+  <path d="M540 315h94" class="line" marker-end="url(#arrow)"/>
+
+  <!-- ================= TURN 2 : Valley Girl ================= -->
+  <!-- user -->
+  <rect x="120" y="396" width="420" height="110" rx="14" class="userBubble"/>
+  <path d="M150 506l-2 26 30-26z" class="userBubble"/>
+  <text x="150" y="436" class="msg">Speak like a Valley Girl and</text>
+  <text x="150" y="468" class="msg">tell me a story.</text>
+  <!-- assistant -->
+  <rect x="640" y="396" width="440" height="138" rx="14" class="botBubble"/>
+  <path d="M1050 534l2 26-30-26z" class="botBubble"/>
+  <text x="666" y="438" class="msg">Oh my gosh! You know, today</text>
+  <text x="666" y="470" class="msg">I met the cutest little robot and</text>
+  <text x="666" y="502" class="msg">I was literally like, no way...</text>
+  <rect x="858" y="383" width="200" height="34" rx="17" class="clay" stroke="#171512" stroke-width="3"/>
+  <text x="876" y="406" class="pill">ValleyGirl Persona</text>
+  <!-- connector -->
+  <path d="M540 451h94" class="line" marker-end="url(#arrow)"/>
+
+  <!-- ================= TURN 3 : Mad Scientist ================= -->
+  <!-- user -->
+  <rect x="120" y="566" width="420" height="110" rx="14" class="userBubble"/>
+  <path d="M150 676l-2 26 30-26z" class="userBubble"/>
+  <text x="150" y="606" class="msg">What's the capital of China,</text>
+  <text x="150" y="638" class="msg">reply in Mad Scientist voice.</text>
+  <!-- assistant -->
+  <rect x="640" y="566" width="440" height="138" rx="14" class="botBubble"/>
+  <path d="M1050 704l2 26-30-26z" class="botBubble"/>
+  <text x="666" y="608" class="msg">Mwahaha! Behold — the answer</text>
+  <text x="666" y="640" class="msg">crackles through my coils: BEIJING!</text>
+  <text x="666" y="672" class="msg">A glorious nexus of power, ahaha!</text>
+  <rect x="838" y="553" width="220" height="34" rx="17" class="ink" stroke="#171512" stroke-width="3"/>
+  <text x="856" y="576" class="pill">MadScientist Persona</text>
+  <!-- connector -->
+  <path d="M540 621h94" class="line" marker-end="url(#arrow)"/>
+
+  <!-- ================= persona flow rail ================= -->
+  <path d="M1116 315c40 0 40 136 0 136" stroke="#c66c45" stroke-width="3" fill="none" marker-end="url(#arrow)" opacity=".75"/>
+  <path d="M1116 451c40 0 40 170 0 170" stroke="#171512" stroke-width="3" fill="none" marker-end="url(#arrow)" opacity=".55"/>
+
+  <!-- ================= footnote ================= -->
+  <rect x="140" y="744" width="920" height="92" rx="8" class="panel"/>
+  <text x="176" y="783" class="small">Post-training data: neutral turns, persona rewrites, and voice-driven transition instructions between personas.</text>
+  <text x="176" y="813" class="small">Outcome: the user re-styles the assistant mid-conversation while content stays correct and on-task.</text>
+</svg>
